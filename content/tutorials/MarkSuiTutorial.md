@@ -65,7 +65,7 @@ List your required hardware components and the quantities here.
 | ESP32 Dev Board     | 1        |
 | DHT11 Sensor        | 1        |
 | Breadboard          | 1        |
-| Jumper Wires        | 5        |
+| Jumper Wires        | 3        |
 
 
 ### Required Tools and Equipment
@@ -96,13 +96,12 @@ In this part, you will wire the DHT11 to the ESP32 and run a simple program to r
 
 ### Background Information
 
-I2C (Inter-Integrated Circuit) is a way for tiny computer parts like sensors and displays to talk to a main chip using just two wires—one for data and one for timing. It lets many devices share the same wires without crashing into each other, like students politely taking turns to speak in class.  The DHT11 needs a pull-up resistor on the data pin and sends data in a timing-based format. Our code waits between readings to keep the data correct.
+I2C (Inter-Integrated Circuit) is a way for tiny computer parts like sensors and displays to talk to a main chip using just two wires—one for data and one for timing. It lets many devices share the same wires without crashing into each other, like students politely taking turns to speak in class. The DHT11 needs a pull-up resistor on the data pin and sends data in a timing-based format. Our code waits between readings to keep the data correct.
 
 ### Components
 
 - ESP32 Dev Board
 - DHT11 Sensor
-- 10 kΩ Resistor
 - Breadboard
 - Jumper Wires
 
@@ -111,11 +110,11 @@ I2C (Inter-Integrated Circuit) is a way for tiny computer parts like sensors and
 1. Connect VCC on the DHT11 to 3.3 V on the ESP32.
 2. Connect GND on the DHT11 to GND on the ESP32.
 3. Connect the data pin on the DHT11 to GPIO 15 on the ESP32.
-4. Place the 10 kΩ resistor between the data pin and 3.3 V as a pull-up.
+![](MarkSuiPhotos/connect.png)
 5. Open Arduino IDE. Copy and paste the code below.
 6. Select *ESP32 Dev Module* under *Tools > Board* and the correct port under *Tools > Port*.
 7. Click upload. Then open the Serial Monitor at 115200 baud.
-
+![](MarkSuiPhotos/serialMOnitor.png)
 ```cpp
 #include "DHT.h"
 
@@ -148,22 +147,20 @@ void loop() {
 
 ## Example
 
-### Introduction
-
-This is what you will see in the Serial Monitor.
-
-### Example
+You will this see in the Serial Monitor.
 
 ```
 Humidity: 38.21 %  Temperature: 22.17 C
 Humidity: 37.30 %  Temperature: 22.11 C
 ```
+This is the photo in my Monitor:
+![](MarkSuiPhotos/result.png)
 
 ### Analysis
 
 * We wait 2 seconds between readings so the sensor is ready.
 * If the sensor fails, the code prints an error message.
-* The output is easy to read and use in other projects.
+* Therefore, we finished it.
 
 ## Additional Resources
 
